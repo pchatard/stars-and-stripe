@@ -7,7 +7,7 @@
                     <NuxtLink to="/" class="nav-link"> Home </NuxtLink>
                 </li>
                 <li class="navbar__list__item">
-                    <NuxtLink to="/products" class="nav-link"> Shop </NuxtLink>
+                    <NuxtLink to="/shop" class="nav-link"> Shop </NuxtLink>
                 </li>
                 <!-- <li class="navbar__list__item">
                     <NuxtLink to="?type=stars" class="nav-link">

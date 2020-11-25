@@ -23,6 +23,10 @@ const actions = {
         commit('updateCart', orderItem);
         commit('updateTotal');
     },
+    changeProductCount({ commit }, updatedItemWithCount) {
+        commit('updateProductCount', updatedItemWithCount);
+        commit('updateTotal');
+    },
     clearCart({ commit }) {
         commit('clearCart');
     },
@@ -35,12 +39,22 @@ const mutations = {
     },
     updateCart(state, orderItem) {
         const productIndex = state.products.findIndex(
-            (product) => product.product === orderItem.product
+            (product) => product.product.uid === orderItem.product.uid
         );
         if (productIndex < 0) {
             state.products.push(orderItem);
         } else {
             state.products[productIndex].count += orderItem.count;
+        }
+    },
+    updateProductCount(state, item) {
+        const itemIndex = state.products.findIndex(
+            (product) => product.product.uid === item.uid
+        );
+        if (item.count && itemIndex >= 0) {
+            state.products[itemIndex].count = item.count;
+        } else if (item.count === 0) {
+            state.products.splice(itemIndex, 1);
         }
     },
     updateTotal(state) {

@@ -1,6 +1,9 @@
 export default {
     // Target (https://go.nuxtjs.dev/config-target)
     target: 'static',
+    env: {
+        STRAPI_URL: process.env.API_URL || 'http://localhost:1337',
+    },
 
     // Global page headers (https://go.nuxtjs.dev/config-head)
     head: {

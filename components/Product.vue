@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NuxtLink :to="`/products/${product.id}`">
+        <NuxtLink :to="`/shop/${product.uid}`">
             <h1>{{ product.name }}</h1>
         </NuxtLink>
         <input id="count" v-model="count" type="number" name="count" />
@@ -23,7 +23,15 @@ export default {
     methods: {
         ...mapActions({ addToCart: 'cart/addToCart' }),
         addProductToCart() {
-            const orderItem = { product: this.product, count: this.count };
+            const orderItem = {
+                product: {
+                    uid: this.product.uid,
+                    name: this.product.name,
+                    img: this.product.images[0].formats.thumbnail.url,
+                },
+                price: this.product.price,
+                count: this.count,
+            };
             this.addToCart(orderItem);
         },
     },

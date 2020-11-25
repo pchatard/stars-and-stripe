@@ -1,7 +1,7 @@
 <template>
     <main class="home">
         <h1 class="title">Stars and Stripe</h1>
-        <NuxtLink to="/products">Shop</NuxtLink>
+        <NuxtLink to="/shop">Shop</NuxtLink>
     </main>
 </template>
 
