@@ -1,10 +1,18 @@
 <template>
-    <div>
-        <NuxtLink :to="`/shop/${product.uid}`">
-            <h1>{{ product.name }}</h1>
+    <div class="product">
+        <NuxtLink :to="`/shop/${product.uid}`" class="product__link">
+            <h1 class="product__title">{{ product.name }}</h1>
         </NuxtLink>
-        <input id="count" v-model="count" type="number" name="count" />
-        <button @click="addProductToCart">Add to Cart</button>
+        <input
+            id="count"
+            v-model="count"
+            type="number"
+            name="count"
+            class="product__count"
+        />
+        <button class="cart__button" @click="addProductToCart">
+            Add to Cart
+        </button>
     </div>
 </template>
 
@@ -37,3 +45,16 @@ export default {
     },
 };
 </script>
+
+<style lang="scss">
+.product {
+    &__link {
+    }
+    &__title {
+    }
+    &__count {
+    }
+    .cart__button {
+    }
+}
+</style>

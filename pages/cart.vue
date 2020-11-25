@@ -1,16 +1,19 @@
 <template>
     <main class="cart">
-        <h1>Cart page</h1>
-        <section class="products">
-            <CartItem
-                v-for="item in cartProducts"
-                :key="item.id"
-                :item="item"
-            />
-        </section>
-        <p>{{ price }}</p>
-        <button @click="clear">Clear my cart</button>
-        <NuxtLink to="/checkout"> Checkout </NuxtLink>
+        <div class="page-container">
+            <h1 class="title">Cart page</h1>
+            <section class="cart__products">
+                <CartItem
+                    v-for="item in cartProducts"
+                    :key="item.id"
+                    :item="item"
+                />
+            </section>
+
+            <p class="cart__price">{{ price }}</p>
+            <button class="clear" @click="clear">Clear my cart</button>
+            <NuxtLink to="/checkout" class="checkout"> Checkout </NuxtLink>
+        </div>
     </main>
 </template>
 
@@ -29,3 +32,18 @@ export default {
     },
 };
 </script>
+
+<style lang="scss">
+.cart {
+    .title {
+    }
+    &__products {
+    }
+    &__price {
+    }
+    .clear {
+    }
+    .checkout {
+    }
+}
+</style>

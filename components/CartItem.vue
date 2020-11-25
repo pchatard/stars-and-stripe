@@ -1,15 +1,18 @@
 <template>
-    <div>
-        <h2>{{ item.product.name }}</h2>
-        <img :src="item.product.img" />
+    <div class="cart__item">
+        <h2 class="item__name">{{ item.product.name }}</h2>
+        <figure class="item__img">
+            <img :src="item.product.img" />
+        </figure>
         <input
             id="count"
             v-model="count"
             type="number"
             @change="updateItemCount(count)"
+            class="item__count-ipt"
         />
-        <p>{{ item.price * item.count }}</p>
-        <button @click="updateItemCount(0)">Remove</button>
+        <p class="item__price">{{ item.price * item.count }}</p>
+        <button class="item__remove" @click="updateItemCount(0)">Remove</button>
     </div>
 </template>
 
@@ -37,3 +40,20 @@ export default {
     },
 };
 </script>
+
+<style lang="scss">
+.cart__item {
+    .item__name {
+    }
+    .item__img {
+        img {
+        }
+    }
+    .item__count-ipt {
+    }
+    .item__price {
+    }
+    .item__remove {
+    }
+}
+</style>

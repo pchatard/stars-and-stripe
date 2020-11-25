@@ -1,16 +1,33 @@
 <template>
-    <main>
-        <NuxtLink to="/shop">Back</NuxtLink>
-        <h1>{{ product.name }}</h1>
-        <figure>
-            <img :src="product.images[0].formats.small.url" alt="" />
-        </figure>
-        <p>{{ product.description }}</p>
-        <p>{{ product.credits }}</p>
-        <p>{{ formatedPrice }}</p>
-        <label for="count"></label>
-        <input id="count" v-model="count" type="number" name="count" />
-        <button @click="addItemToCart">Add to cart</button>
+    <main class="product">
+        <div class="page-container">
+            <NuxtLink to="/shop" class="back__button">Back</NuxtLink>
+
+            <h1 class="title">{{ product.name }}</h1>
+
+            <figure class="img__container">
+                <img
+                    :src="product.images[0].formats.small.url"
+                    :alt="product.name"
+                />
+            </figure>
+
+            <p class="description">{{ product.description }}</p>
+            <p class="credits">{{ product.credits }}</p>
+            <p class="price">{{ formatedPrice }}</p>
+            <fieldset class="count">
+                <label for="count-ipt">Count</label>
+                <input
+                    id="count-ipt"
+                    v-model="count"
+                    type="number"
+                    name="count"
+                />
+            </fieldset>
+            <button class="cart__button" @click="addItemToCart">
+                Add to cart
+            </button>
+        </div>
     </main>
 </template>
 
@@ -58,3 +75,30 @@ export default {
     },
 };
 </script>
+
+<style lang="scss">
+.product {
+    .back__button {
+    }
+    .title {
+    }
+    .img__container {
+        img {
+        }
+    }
+    .description {
+    }
+    .credits {
+    }
+    .price {
+    }
+    .count {
+        label {
+        }
+        input {
+        }
+    }
+    .cart__button {
+    }
+}
+</style>

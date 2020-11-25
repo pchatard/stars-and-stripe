@@ -1,5 +1,5 @@
 <template>
-    <fieldset>
+    <fieldset class="filter">
         <label :for="category.id">{{ category.title }}</label>
         <input
             :id="category.id"
@@ -25,3 +25,10 @@ export default {
     },
 };
 </script>
+
+<style lang="scss">
+.filter (
+    label {}
+    input {}
+)
+</style>

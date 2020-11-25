@@ -1,21 +1,24 @@
 <template>
     <main class="shop">
-        <h1>Products</h1>
-        <!-- Include filters directly here -->
-        <CategoryFilter
-            v-for="category in types"
-            :key="category.id"
-            :category="category"
-            :active="activeFilters.includes(category.id)"
-            @change="filterProductList"
-        />
-        <section class="products">
-            <Product
-                v-for="product in typedProducts"
-                :key="product.uid"
-                :product="product"
-            />
-        </section>
+        <div class="page-container">
+            <h1 class="title">Products</h1>
+            <div class="filters">
+                <CategoryFilter
+                    v-for="category in types"
+                    :key="category.id"
+                    :category="category"
+                    :active="activeFilters.includes(category.id)"
+                    @change="filterProductList"
+                />
+            </div>
+            <section class="products">
+                <Product
+                    v-for="product in typedProducts"
+                    :key="product.uid"
+                    :product="product"
+                />
+            </section>
+        </div>
     </main>
 </template>
 
@@ -63,3 +66,16 @@ export default {
     },
 };
 </script>
+
+<style lang="scss">
+.shop {
+    .title {
+    }
+
+    .filters {
+    }
+
+    .products {
+    }
+}
+</style>
