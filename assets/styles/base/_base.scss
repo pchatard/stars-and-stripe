@@ -26,3 +26,12 @@ a:visited {
 ul {
     list-style: none;
 }
+
+button {
+    border: 1px solid $text;
+    background-color: transparent;
+    padding: 1rem 2rem;
+    color: $text;
+    font-family: inherit;
+    cursor: pointer;
+}

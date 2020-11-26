@@ -1,18 +1,20 @@
 <template>
     <div class="product">
         <NuxtLink :to="`/shop/${product.uid}`" class="product__link">
+            <div class="product__img">
+                <img :src="product.images[0].formats.small.url" alt="" />
+            </div>
             <h1 class="product__title">{{ product.name }}</h1>
+            <p class="product__price">{{ product.price.toFixed(2) }}€</p>
         </NuxtLink>
-        <input
-            id="count"
-            v-model="count"
-            type="number"
-            name="count"
-            class="product__count"
-        />
-        <button class="cart__button" @click="addProductToCart">
-            Add to Cart
-        </button>
+        <div class="cart__controls">
+            <Counter :count="count" @change="setCount" />
+
+            <button class="cart__button" @click="addProductToCart">
+                <font-awesome-icon icon="cart-plus" class="cart__icon" />
+                Add to Cart
+            </button>
+        </div>
     </div>
 </template>
 
@@ -42,19 +44,81 @@ export default {
             };
             this.addToCart(orderItem);
         },
+        setCount(value) {
+            this.count = parseInt(value);
+        },
     },
 };
 </script>
 
 <style lang="scss">
 .product {
-    &__link {
+    width: 100%;
+    @include flex($align: center, $direction: column);
+    transition: all 0.2s;
+    border: 1px solid transparent;
+
+    &:hover {
+        border: 1px solid rgba($text, 0.5);
+        box-shadow: 0 0 5px rgba($background-secondary, 0.5);
+
+        .product__img img {
+            transform: scale(1);
+        }
+
+        .product__title,
+        .product__price {
+            padding-left: 1rem;
+        }
     }
+
+    &__img {
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 35rem;
+            transform: scale(1.25);
+            object-fit: cover;
+            transition: all 0.2s;
+        }
+    }
+
     &__title {
+        font-family: 'Bondi';
+        margin: 1rem 0;
+        transition: all 0.2s;
     }
+
+    &__price {
+        font-size: 2rem;
+        margin: 1rem 0;
+        transition: all 0.2s;
+    }
+
+    .cart__controls {
+        width: 100%;
+        padding: 1rem;
+        @include flex(flex-end, center);
+    }
+
     &__count {
     }
+
     .cart__button {
+        .cart__icon {
+            margin-right: 1rem;
+        }
+        margin-left: 1rem;
+        text-transform: uppercase;
+        font-size: 1.6rem;
+
+        &:hover {
+            border: 1px solid transparent;
+            background-color: $primary;
+        }
     }
 }
 </style>

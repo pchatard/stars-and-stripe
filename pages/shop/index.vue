@@ -1,8 +1,9 @@
 <template>
     <main class="main shop">
         <div class="page-container">
-            <h1 class="title">Products</h1>
+            <h1 class="title">Shop a piece of the universe</h1>
             <div class="filters">
+                <p class="filters__title">Filter by:</p>
                 <CategoryFilter
                     v-for="category in types"
                     :key="category.id"
@@ -69,13 +70,45 @@ export default {
 
 <style lang="scss">
 .shop {
+    .page-container {
+        padding-top: 3rem;
+    }
+
     .title {
+        margin-bottom: 2rem;
     }
 
     .filters {
+        @include flex($align: center);
+        margin-bottom: 2rem;
+
+        &__title {
+            font-size: 2rem;
+            margin-right: 2rem;
+        }
     }
 
     .products {
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 5rem;
+    }
+}
+
+@include tablet {
+    .shop {
+        .products {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@include mobile {
+    .shop {
+        .products {
+            grid-template-columns: 1fr;
+        }
     }
 }
 </style>

@@ -3,7 +3,13 @@
     display: swap;
     src: url('~assets/fonts/BondiFont/Bondi.otf') format('truetype');
 }
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
 
 header {
     font-family: 'Bondi';
+}
+
+body {
+    font-family: 'Maven Pro', Roboto, sans-serif;
 }

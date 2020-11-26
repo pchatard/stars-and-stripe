@@ -13,7 +13,9 @@
                         <NuxtLink to="/shop" class="nav-link"> Shop </NuxtLink>
                     </li>
                     <li class="navbar__list__item" @click="toggleNavbar">
-                        <NuxtLink to="/cart" class="nav-link"> Cart </NuxtLink>
+                        <NuxtLink to="/cart" class="nav-link">
+                            <font-awesome-icon icon="shopping-cart" />
+                        </NuxtLink>
                     </li>
                 </ul>
             </nav>
@@ -50,6 +52,8 @@ export default {
 
 <style lang="scss">
 .header {
+    background-color: $background-primary;
+    z-index: 10;
     box-shadow: 0 0 3px rgba($background-secondary, 1);
     width: 100%;
     position: fixed;
@@ -111,6 +115,7 @@ export default {
 
             &__list {
                 flex-direction: column;
+                align-items: center;
 
                 &__item {
                     margin: 0;

@@ -33,6 +33,7 @@ export default {
         // https://go.nuxtjs.dev/eslint
         '@nuxtjs/eslint-module',
         '@nuxtjs/style-resources',
+        '@nuxtjs/fontawesome',
     ],
 
     // Modules (https://go.nuxtjs.dev/config-modules)
@@ -49,6 +50,12 @@ export default {
             '~/assets/styles/abstracts/_variables.scss',
             '~/assets/styles/abstracts/_mixins.scss',
         ],
+    },
+
+    fontawesome: {
+        icons: {
+            solid: ['faCartPlus', 'faShoppingCart', 'faPlus', 'faMinus'],
+        },
     },
 
     // Build Configuration (https://go.nuxtjs.dev/config-build)
