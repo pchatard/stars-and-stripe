@@ -104,9 +104,6 @@ export default {
         @include flex(flex-end, center);
     }
 
-    &__count {
-    }
-
     .cart__button {
         .cart__icon {
             margin-right: 1rem;
@@ -118,6 +115,31 @@ export default {
         &:hover {
             border: 1px solid transparent;
             background-color: $primary;
+        }
+    }
+}
+
+@include tablet {
+    .product {
+        .cart__button {
+            padding: 1rem;
+
+            .cart__icon {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+}
+
+@include mobile {
+    .product {
+        .cart__controls {
+            flex-direction: column;
+            align-items: flex-end;
+
+            .cart__button {
+                margin: 1rem 0;
+            }
         }
     }
 }

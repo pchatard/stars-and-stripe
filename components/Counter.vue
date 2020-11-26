@@ -9,7 +9,7 @@
             type="number"
             min="0"
             step="1"
-            @change="$emit('change', currentCount)"
+            @change="setCount"
         />
         <button class="counter__plus" @click="increment">
             <font-awesome-icon icon="plus" />
@@ -36,7 +36,17 @@ export default {
             this.$emit('change', this.currentCount);
         },
         decrement() {
-            this.currentCount--;
+            if (this.currentCount > 0) {
+                this.currentCount--;
+            }
+            this.$emit('change', this.currentCount);
+        },
+        setCount(event) {
+            if (event.target.value >= 0) {
+                this.currentCount = parseInt(event.target.value);
+            } else {
+                this.currentCount = 1;
+            }
             this.$emit('change', this.currentCount);
         },
     },
@@ -64,6 +74,14 @@ export default {
         font-size: 2rem;
         padding: 0.6rem;
         border: 1px solid white;
+    }
+}
+
+@include tablet {
+    .counter {
+        &__input {
+            width: 4rem;
+        }
     }
 }
 </style>
