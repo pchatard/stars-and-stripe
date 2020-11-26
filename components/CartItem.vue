@@ -8,8 +8,8 @@
             id="count"
             v-model="count"
             type="number"
-            @change="updateItemCount(count)"
             class="item__count-ipt"
+            @change="updateItemCount(count)"
         />
         <p class="item__price">{{ item.price * item.count }}</p>
         <button class="item__remove" @click="updateItemCount(0)">Remove</button>

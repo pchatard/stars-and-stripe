@@ -1,5 +1,5 @@
 <template>
-    <main class="cart">
+    <main class="main cart">
         <div class="page-container">
             <h1 class="title">Cart page</h1>
             <section class="cart__products">

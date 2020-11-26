@@ -1,5 +1,5 @@
 <template>
-    <main class="product">
+    <main class="main product">
         <div class="page-container">
             <NuxtLink to="/shop" class="back__button">Back</NuxtLink>
 

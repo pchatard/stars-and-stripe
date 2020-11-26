@@ -27,8 +27,10 @@ export default {
 </script>
 
 <style lang="scss">
-.filter (
-    label {}
-    input {}
-)
+.filter {
+    label {
+    }
+    input {
+    }
+}
 </style>

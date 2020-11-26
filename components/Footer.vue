@@ -1,3 +1,5 @@
 <template>
-    <footer>Footer</footer>
+    <footer>
+        <div class="page-container">Footer</div>
+    </footer>
 </template>

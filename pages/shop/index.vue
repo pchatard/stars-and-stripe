@@ -1,5 +1,5 @@
 <template>
-    <main class="shop">
+    <main class="main shop">
         <div class="page-container">
             <h1 class="title">Products</h1>
             <div class="filters">
