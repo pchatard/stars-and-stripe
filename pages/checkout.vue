@@ -1,5 +1,7 @@
 <template>
     <main class="main">
-        <h1>Checkout page</h1>
+        <div class="page-container">
+            <h1>Checkout page</h1>
+        </div>
     </main>
 </template>

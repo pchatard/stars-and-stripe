@@ -61,6 +61,7 @@ export default {
 .cart {
     .page-container {
         padding-top: 3rem;
+        margin: 0;
     }
 
     &__header {

@@ -16,7 +16,6 @@
 <style lang="scss">
 .home {
     .page-container {
-        min-height: 80vh;
         padding-top: 3rem;
         @include flex(center, center, column);
     }
