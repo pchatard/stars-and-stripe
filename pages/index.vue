@@ -1,63 +1,64 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">stars-and-stripe</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+    <main class="main home">
+        <div class="page-container">
+            <h1 class="title">Stars and Stripe</h1>
+            <h2 class="subtitle">
+                Buy the most beautiful nebulas, planets, galaxies and more, for
+                a few pennies.
+            </h2>
+            <NuxtLink to="/shop" class="shop__link">
+                <button>Shop</button>
+            </NuxtLink>
+        </div>
+    </main>
 </template>
 
-<script>
-export default {}
-</script>
+<style lang="scss">
+.home {
+    .page-container {
+        padding-top: 3rem;
+        @include flex(center, center, column);
+    }
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+    .title {
+        text-align: center;
+        opacity: 0;
+        font-size: 5rem;
+        font-family: 'Bondi';
+        animation: fade-in 1.5s forwards;
+    }
+
+    .subtitle {
+        text-align: center;
+        opacity: 0;
+        margin: 2rem;
+        animation: fade-in 1.5s forwards;
+        animation-delay: 0.5s;
+    }
+
+    .shop__link {
+        opacity: 0;
+        margin: 2rem;
+        animation: fade-in 1.5s forwards;
+        animation-delay: 1s;
+        button {
+            font-size: 3rem;
+        }
+
+        &:hover {
+            background-color: $primary;
+        }
+    }
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+@include mobile {
+    .home {
+        .title {
+            font-size: 4rem;
+        }
+        .subtitle {
+            font-size: 2rem;
+        }
+    }
 }
 </style>
