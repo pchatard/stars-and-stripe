@@ -60,9 +60,8 @@ export default {
 <style lang="scss">
 .cart {
     .page-container {
-        max-width: 100%;
         padding-top: 3rem;
-        margin: 0;
+        width: 100%;
     }
 
     &__header {
