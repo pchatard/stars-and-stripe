@@ -4,13 +4,15 @@
             <h1 class="title">Shop a piece of the universe</h1>
             <div class="filters">
                 <p class="filters__title">Filter by:</p>
-                <CategoryFilter
-                    v-for="category in types"
-                    :key="category.id"
-                    :category="category"
-                    :active="activeFilters.includes(category.id)"
-                    @change="filterProductList"
-                />
+                <div class="filters__container">
+                    <CategoryFilter
+                        v-for="category in types"
+                        :key="category.id"
+                        :category="category"
+                        :active="activeFilters.includes(category.id)"
+                        @change="filterProductList"
+                    />
+                </div>
             </div>
             <section class="products">
                 <Product
@@ -72,6 +74,7 @@ export default {
 .shop {
     .page-container {
         padding-top: 3rem;
+        max-width: 100%;
     }
 
     .title {
@@ -85,6 +88,10 @@ export default {
         &__title {
             font-size: 2rem;
             margin-right: 2rem;
+        }
+
+        &__container {
+            @include flex;
         }
     }
 
@@ -108,6 +115,14 @@ export default {
     .shop {
         .products {
             grid-template-columns: 1fr;
+        }
+        .filters {
+            flex-direction: column;
+            align-items: flex-start;
+
+            &__title {
+                margin-bottom: 1rem;
+            }
         }
     }
 }

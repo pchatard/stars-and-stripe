@@ -21,6 +21,7 @@
     }
 
     .title {
+        text-align: center;
         opacity: 0;
         font-size: 5rem;
         font-family: 'Bondi';
@@ -28,6 +29,7 @@
     }
 
     .subtitle {
+        text-align: center;
         opacity: 0;
         margin: 2rem;
         animation: fade-in 1.5s forwards;
@@ -45,6 +47,17 @@
 
         &:hover {
             background-color: $primary;
+        }
+    }
+}
+
+@include mobile {
+    .home {
+        .title {
+            font-size: 4rem;
+        }
+        .subtitle {
+            font-size: 2rem;
         }
     }
 }

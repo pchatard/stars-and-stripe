@@ -145,6 +145,8 @@ export default {
 
 @include mobile {
     .product {
+        border: 1px solid rgba($text, 0.5);
+
         .cart__controls {
             flex-direction: column;
             align-items: flex-end;
@@ -152,6 +154,11 @@ export default {
             .cart__button {
                 margin: 1rem 0;
             }
+        }
+
+        .product__title,
+        .product__price {
+            padding-left: 1rem;
         }
     }
 }

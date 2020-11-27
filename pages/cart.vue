@@ -60,6 +60,7 @@ export default {
 <style lang="scss">
 .cart {
     .page-container {
+        max-width: 100%;
         padding-top: 3rem;
         margin: 0;
     }
@@ -118,6 +119,49 @@ export default {
 
         &:hover {
             background-color: rgba($primary, 0.8);
+        }
+    }
+}
+
+@include tablet {
+    .cart {
+        &__header {
+            .continue {
+                button {
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+}
+
+@include mobile {
+    .cart {
+        &__header {
+            flex-direction: column;
+            align-items: stretch;
+
+            .title {
+                flex: none;
+                margin: 1rem 0;
+            }
+        }
+
+        &__products {
+            margin: 2rem 0;
+        }
+
+        &__actions {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .checkout {
+            margin: 1rem 0;
+
+            button {
+                width: 100%;
+            }
         }
     }
 }

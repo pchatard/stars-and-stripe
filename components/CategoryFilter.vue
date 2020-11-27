@@ -59,4 +59,32 @@ export default {
         }
     }
 }
+
+@include tablet {
+    .filter {
+        label {
+            &:hover {
+                color: inherit;
+                background-color: inherit;
+            }
+        }
+
+        input:checked ~ label {
+            &:hover {
+                color: inherit;
+                background-color: inherit;
+            }
+        }
+    }
+}
+
+@include mobile {
+    .filter {
+        margin-right: 1rem;
+        label {
+            width: auto;
+            padding: 1.2rem 1rem;
+        }
+    }
+}
 </style>

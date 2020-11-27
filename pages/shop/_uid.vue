@@ -188,4 +188,56 @@ export default {
         }
     }
 }
+
+@include tablet {
+    .details {
+        .page-container {
+            max-width: 100%;
+        }
+
+        &__content {
+            flex-direction: column;
+        }
+
+        .cart__controls {
+            .counter {
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+@include mobile {
+    .details {
+        &__header {
+            flex-direction: column;
+            align-items: flex-start;
+
+            .back__button {
+                margin-bottom: 1rem;
+                button {
+                    font-size: 1.6rem;
+                }
+            }
+
+            .title {
+                text-align: left;
+                font-size: 3rem;
+            }
+        }
+
+        .cart__controls {
+            flex-direction: column;
+            align-items: flex-end;
+
+            .price {
+                margin: 1rem 0;
+            }
+
+            .counter {
+                margin: 1rem 0;
+            }
+        }
+    }
+}
 </style>

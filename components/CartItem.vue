@@ -92,4 +92,75 @@ export default {
         }
     }
 }
+
+@include tablet {
+    .cart__item {
+        padding-right: 0.5rem;
+
+        .item__img {
+            padding: 2rem;
+        }
+
+        a {
+            width: 30%;
+        }
+
+        .recap {
+            .item__price {
+                font-size: 2rem;
+                margin: 0 1rem;
+            }
+
+            .item__remove {
+                font-size: 1.6rem;
+
+                .icon__remove {
+                    margin-right: 0rem;
+                }
+            }
+        }
+    }
+}
+
+@include mobile {
+    .cart__item {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .item__img {
+            padding: 1rem;
+            width: 100%;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        a {
+            width: 100%;
+        }
+
+        .recap {
+            margin: 1rem 0;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .item__price {
+                margin: 1rem 0;
+            }
+
+            .counter {
+                margin: 0;
+            }
+
+            .item__remove {
+                .icon__remove {
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+    }
+}
 </style>
