@@ -54,7 +54,14 @@ export default {
 
     fontawesome: {
         icons: {
-            solid: ['faCartPlus', 'faShoppingCart', 'faPlus', 'faMinus'],
+            solid: [
+                'faCartPlus',
+                'faShoppingCart',
+                'faPlus',
+                'faMinus',
+                'faTimes',
+                'faArrowLeft',
+            ],
         },
     },
 

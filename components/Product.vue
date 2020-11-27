@@ -72,6 +72,18 @@ export default {
         }
     }
 
+    &:nth-of-type(2n) {
+        opacity: 0;
+        animation: fade-in 1s forwards;
+        animation-delay: 0.3s;
+    }
+
+    &:nth-of-type(2n + 1) {
+        opacity: 0;
+        animation: fade-in 1s forwards;
+        animation-delay: 0.6s;
+    }
+
     &__img {
         display: grid;
         place-items: center;

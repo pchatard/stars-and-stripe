@@ -1,7 +1,24 @@
 <template>
     <main class="main cart">
         <div class="page-container">
-            <h1 class="title">Cart page</h1>
+            <section class="cart__header">
+                <NuxtLink to="/shop" class="continue">
+                    <button>
+                        <font-awesome-icon
+                            icon="cart-plus"
+                            class="icon__cart"
+                        />
+                        Continue shopping
+                    </button>
+                </NuxtLink>
+                <h1 class="title">My Cart</h1>
+                <NuxtLink :to="price > 0 ? '/checkout' : ''" class="checkout">
+                    <button>
+                        Checkout
+                        {{ price }}€
+                    </button>
+                </NuxtLink>
+            </section>
             <section class="cart__products">
                 <CartItem
                     v-for="item in cartProducts"
@@ -10,9 +27,16 @@
                 />
             </section>
 
-            <p class="cart__price">{{ price }}</p>
-            <button class="clear" @click="clear">Clear my cart</button>
-            <NuxtLink to="/checkout" class="checkout"> Checkout </NuxtLink>
+            <div class="cart__actions">
+                <button class="clear" @click="clear">Clear my cart</button>
+
+                <NuxtLink :to="price > 0 ? '/checkout' : ''" class="checkout">
+                    <button>
+                        Checkout
+                        {{ price }}€
+                    </button>
+                </NuxtLink>
+            </div>
         </div>
     </main>
 </template>
@@ -35,15 +59,65 @@ export default {
 
 <style lang="scss">
 .cart {
-    .title {
+    .page-container {
+        padding-top: 3rem;
     }
+
+    &__header {
+        @include flex($align: stretch);
+        margin-bottom: 4rem;
+
+        .continue {
+            button {
+                font-size: 2rem;
+
+                .icon__cart {
+                    margin-right: 1rem;
+                }
+            }
+
+            &:hover {
+                background-color: $text;
+                button {
+                    color: $background-primary;
+                }
+            }
+        }
+
+        .title {
+            flex: auto;
+            text-align: center;
+            font-size: 3rem;
+        }
+    }
+
     &__products {
+        @include flex(flex-start, stretch, column);
     }
-    &__price {
+
+    &__actions {
+        @include flex(flex-end, center);
+
+        .clear {
+            font-size: 1.6rem;
+            &:hover {
+                color: $background-primary;
+                background-color: $text;
+            }
+        }
     }
-    .clear {
-    }
+
     .checkout {
+        margin-left: 2rem;
+        background-color: $primary;
+
+        button {
+            font-size: 2rem;
+        }
+
+        &:hover {
+            background-color: rgba($primary, 0.8);
+        }
     }
 }
 </style>

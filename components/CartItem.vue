@@ -1,18 +1,24 @@
 <template>
     <div class="cart__item">
-        <h2 class="item__name">{{ item.product.name }}</h2>
         <figure class="item__img">
             <img :src="item.product.img" />
         </figure>
-        <input
-            id="count"
-            v-model="count"
-            type="number"
-            class="item__count-ipt"
-            @change="updateItemCount(count)"
-        />
-        <p class="item__price">{{ item.price * item.count }}</p>
-        <button class="item__remove" @click="updateItemCount(0)">Remove</button>
+
+        <NuxtLink :to="`/shop/${item.product.uid}`">
+            <h2 class="item__name">{{ item.product.name }}</h2>
+        </NuxtLink>
+
+        <div class="recap">
+            <Counter :count="count" @change="updateItemCount" />
+
+            <p class="item__price">
+                {{ (item.price * item.count).toFixed(2) }}€
+            </p>
+            <button class="item__remove" @click="updateItemCount(0)">
+                <font-awesome-icon icon="times" class="icon__remove" />
+                Remove
+            </button>
+        </div>
     </div>
 </template>
 
@@ -43,17 +49,47 @@ export default {
 
 <style lang="scss">
 .cart__item {
-    .item__name {
+    margin: 1rem 0;
+    padding-right: 1rem;
+    @include flex(flex-start, center);
+    border: 1px solid transparent;
+    transition: all 0.2s;
+
+    &:hover {
+        border: 1px solid rgba($text, 0.5);
+        box-shadow: 0 0 5px rgba($background-secondary, 1);
     }
+
     .item__img {
+        padding: 3rem;
         img {
+            width: 10rem;
+            height: 10rem;
+            object-fit: cover;
         }
     }
-    .item__count-ipt {
-    }
-    .item__price {
-    }
-    .item__remove {
+
+    .recap {
+        @include flex(center, center);
+        margin-left: auto;
+
+        .item__price {
+            font-size: 3rem;
+            margin: 0 2rem;
+        }
+
+        .item__remove {
+            font-size: 2rem;
+
+            .icon__remove {
+                margin-right: 1rem;
+            }
+
+            &:hover {
+                color: $background-primary;
+                background-color: $text;
+            }
+        }
     }
 }
 </style>
