@@ -4,7 +4,7 @@
             <h1 class="title">Stars and Stripe</h1>
             <h2 class="subtitle">
                 Buy the most beautiful nebulas, planets, galaxies and more, for
-                a few pennies.
+                a few cents.
             </h2>
             <NuxtLink to="/shop" class="shop__link">
                 <button>Shop</button>
