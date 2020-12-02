@@ -40,10 +40,33 @@ export default {
     modules: [
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
+        '@nuxtjs/auth',
     ],
 
     // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-    axios: {},
+    axios: {
+        baseURL: process.env.API_URL,
+    },
+
+    auth: {
+        strategies: {
+            local: {
+                endpoints: {
+                    login: {
+                        url: `/auth/local`,
+                        method: 'post',
+                        propertyName: 'jwt',
+                    },
+                    user: {
+                        url: `/users/me`,
+                        method: 'get',
+                        propertyName: false,
+                    },
+                    logout: false,
+                },
+            },
+        },
+    },
 
     styleResources: {
         scss: [
@@ -61,6 +84,7 @@ export default {
                 'faMinus',
                 'faTimes',
                 'faArrowLeft',
+                'faUser',
             ],
         },
     },
