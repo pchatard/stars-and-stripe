@@ -4,7 +4,7 @@
             <h1 class="title">Welcome, {{ user.username }}!</h1>
             <section class="orders">
                 <h2 class="orders__title">Orders</h2>
-                <ul v-if="orders" class="order__list">
+                <ul v-if="orders.length" class="order__list">
                     <li
                         v-for="order in orders"
                         :key="order.id"
@@ -25,7 +25,7 @@
                         </div>
                     </li>
                 </ul>
-                <p v-else class="order__none">You don't have any order.</p>
+                <p v-else class="order__none">You don't have any order yet.</p>
             </section>
         </div>
     </main>
