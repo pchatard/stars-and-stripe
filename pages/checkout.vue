@@ -39,7 +39,6 @@ export default {
                                 uid: item.product.uid,
                             })
                         )[0];
-                        product.count = item.count;
                         return product;
                     })
                 );

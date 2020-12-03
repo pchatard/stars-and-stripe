@@ -26,11 +26,13 @@
                         </NuxtLink>
                     </li>
                     <li
-                        v-if="$auth.loggedIn"
+                        v-show="$auth.loggedIn"
                         class="navbar__list__item"
                         @click="handleLogout"
                     >
-                        <NuxtLink to="" class="nav-link"> Logout </NuxtLink>
+                        <NuxtLink to="/shop" class="nav-link">
+                            Logout
+                        </NuxtLink>
                     </li>
                 </ul>
             </nav>
