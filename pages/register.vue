@@ -72,7 +72,7 @@ export default {
                 await this.$auth.loginWith('local', {
                     data: { identifier: this.email, password: this.password },
                 });
-                this.$router.push('/account');
+                this.$router.go(-2);
             } catch (error) {
                 this.errorMessage = 'Invalid email';
             }

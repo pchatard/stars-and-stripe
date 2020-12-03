@@ -30,7 +30,7 @@
                         class="navbar__list__item"
                         @click="handleLogout"
                     >
-                        Logout
+                        <NuxtLink to="" class="nav-link"> Logout </NuxtLink>
                     </li>
                 </ul>
             </nav>
@@ -48,7 +48,7 @@ export default {
         };
     },
     mounted() {
-        window.addEventListener('load', this.initializeNavbar);
+        this.initializeNavbar();
         window.addEventListener('resize', this.initializeNavbar);
     },
     methods: {

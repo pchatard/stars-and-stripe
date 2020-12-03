@@ -1,16 +1,21 @@
 <template>
     <main class="main account">
         <div class="page-container">
-            <h1 class="title">Welcome, {{ $auth.user.username }}!</h1>
+            <h1 class="title">Welcome, {{ user.username }}!</h1>
             <section class="orders">
                 <h2 class="orders__title">Orders</h2>
-                <ul v-if="$auth.user.orders" class="order__list">
+                <ul v-if="orders" class="order__list">
                     <li
-                        v-for="order in $auth.user.orders"
+                        v-for="order in orders"
                         :key="order.id"
                         class="order__item"
                     >
-                        {{ order.number }}
+                        <div class="order">
+                            <h3>{{ order.title }} n°{{ order.id }}</h3>
+                            <NuxtLink :to="`/account/order/${ordr_id}`">
+                                See order details
+                            </NuxtLink>
+                        </div>
                     </li>
                 </ul>
                 <p v-else class="order__none">You don't have any order.</p>
@@ -18,6 +23,19 @@
         </div>
     </main>
 </template>
+
+<script>
+export default {
+    async asyncData({ $strapi, $auth }) {
+        const user = await $auth.user;
+        const orders = await $strapi.$orders.find({ user });
+        return {
+            user,
+            orders,
+        };
+    },
+};
+</script>
 
 <style lang="scss">
 .account {

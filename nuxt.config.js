@@ -1,9 +1,6 @@
 export default {
     // Target (https://go.nuxtjs.dev/config-target)
     target: 'static',
-    env: {
-        STRAPI_URL: process.env.API_URL || 'http://localhost:1337',
-    },
 
     // Global page headers (https://go.nuxtjs.dev/config-head)
     head: {
@@ -41,11 +38,16 @@ export default {
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
         '@nuxtjs/auth',
+        '@nuxtjs/strapi',
     ],
 
     // Axios module configuration (https://go.nuxtjs.dev/config-axios)
     axios: {
-        baseURL: process.env.API_URL,
+        baseURL: process.env.STRAPI_URL,
+    },
+
+    strapi: {
+        entities: ['products', 'types', 'orders'],
     },
 
     auth: {

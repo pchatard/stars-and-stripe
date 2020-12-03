@@ -30,7 +30,7 @@
             <div class="cart__actions">
                 <button class="clear" @click="clear">Clear my cart</button>
 
-                <NuxtLink :to="price > 0 ? '/checkout' : ''" class="checkout">
+                <NuxtLink :to="checkoutRoute" class="checkout">
                     <button>
                         Checkout
                         {{ price }}€
@@ -50,6 +50,13 @@ export default {
             price: 'cart/totalPrice',
             cartProducts: 'cart/cartProducts',
         }),
+        checkoutRoute() {
+            if (this.$auth.loggedIn && this.cartProducts.length) {
+                return '/checkout';
+            } else {
+                return '/login';
+            }
+        },
     },
     methods: {
         ...mapActions({ clear: 'cart/clearCart' }),

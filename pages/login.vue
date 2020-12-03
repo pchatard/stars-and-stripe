@@ -53,7 +53,7 @@ export default {
                         password: this.password,
                     },
                 });
-                this.$router.push('/account');
+                this.$router.go(-1);
             } catch (error) {
                 this.errorMessage = 'Email or password incorrect';
             }
