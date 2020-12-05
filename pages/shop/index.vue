@@ -27,11 +27,9 @@
 
 <script>
 export default {
-    async asyncData({ query, $axios }) {
-        const products = await $axios.$get(
-            `${process.env.STRAPI_URL}/products`
-        );
-        const types = await $axios.$get(`${process.env.STRAPI_URL}/types`);
+    async asyncData({ query, $strapi }) {
+        const products = await $strapi.$products.find();
+        const types = await $strapi.$types.find();
         return {
             products,
             types,

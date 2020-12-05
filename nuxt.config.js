@@ -1,9 +1,6 @@
 export default {
     // Target (https://go.nuxtjs.dev/config-target)
     target: 'static',
-    env: {
-        STRAPI_URL: process.env.API_URL || 'http://localhost:1337',
-    },
 
     // Global page headers (https://go.nuxtjs.dev/config-head)
     head: {
@@ -40,10 +37,38 @@ export default {
     modules: [
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
+        '@nuxtjs/auth',
+        '@nuxtjs/strapi',
     ],
 
     // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-    axios: {},
+    axios: {
+        baseURL: process.env.STRAPI_URL,
+    },
+
+    strapi: {
+        entities: ['products', 'types', 'orders'],
+    },
+
+    auth: {
+        strategies: {
+            local: {
+                endpoints: {
+                    login: {
+                        url: `/auth/local`,
+                        method: 'post',
+                        propertyName: 'jwt',
+                    },
+                    user: {
+                        url: `/users/me`,
+                        method: 'get',
+                        propertyName: false,
+                    },
+                    logout: false,
+                },
+            },
+        },
+    },
 
     styleResources: {
         scss: [
@@ -61,6 +86,7 @@ export default {
                 'faMinus',
                 'faTimes',
                 'faArrowLeft',
+                'faUser',
             ],
         },
     },

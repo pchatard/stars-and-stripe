@@ -17,6 +17,23 @@
                             <font-awesome-icon icon="shopping-cart" />
                         </NuxtLink>
                     </li>
+                    <li class="navbar__list__item" @click="toggleNavbar">
+                        <NuxtLink
+                            :to="$auth.loggedIn ? '/account' : '/login'"
+                            class="nav-link"
+                        >
+                            <font-awesome-icon icon="user" />
+                        </NuxtLink>
+                    </li>
+                    <li
+                        v-show="$auth.loggedIn"
+                        class="navbar__list__item"
+                        @click="handleLogout"
+                    >
+                        <NuxtLink to="/shop" class="nav-link">
+                            Logout
+                        </NuxtLink>
+                    </li>
                 </ul>
             </nav>
             <Hamburger :checked="showNavbar" @hamburger="toggleNavbar" />
@@ -33,7 +50,7 @@ export default {
         };
     },
     mounted() {
-        window.addEventListener('load', this.initializeNavbar);
+        this.initializeNavbar();
         window.addEventListener('resize', this.initializeNavbar);
     },
     methods: {
@@ -45,6 +62,10 @@ export default {
             if (this.isMobileView) {
                 this.showNavbar = !this.showNavbar;
             }
+        },
+        async handleLogout() {
+            await this.$auth.logout();
+            this.toggleNavbar();
         },
     },
 };

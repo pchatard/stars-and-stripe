@@ -23,7 +23,7 @@
                 </figure>
 
                 <div class="text">
-                    <p class="description"></p>
+                    <div class="description"></div>
                     <p class="credits">{{ product.credits }}</p>
                 </div>
             </section>
@@ -44,13 +44,9 @@
 import { mapActions } from 'vuex';
 
 export default {
-    async asyncData({ params, $axios }) {
+    async asyncData({ params, $strapi }) {
         const productUid = params.uid;
-        const product = (
-            await $axios.$get(
-                `${process.env.STRAPI_URL}/products?uid=${productUid}`
-            )
-        )[0];
+        const product = (await $strapi.$products.find({ uid: productUid }))[0];
         return {
             product,
         };
@@ -101,6 +97,7 @@ export default {
 .details {
     .page-container {
         padding: 3rem;
+        width: 100%;
     }
 
     &__header {
